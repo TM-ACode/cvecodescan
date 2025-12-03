@@ -36,7 +36,7 @@ docker stop cve-2025-55182 && docker rm cve-2025-55182
 https://github.com/ejpir/CVE-2025-55182-poc/blob/main/src/server.js
 
 '/formaction' - is the custom route for the POST request (multipart/form-data).
-This route should be replaced for real-life scenario.
+This route should be replaced in real-life scenario testing.
 
 # Check vulnerability
 python3 exploit.py --ip TARGET --port 3002 --post-endpoint "/formaction" --check --no-ssl-verify
@@ -59,8 +59,9 @@ python3 exploit.py --ip TARGET --port 3002 --post-endpoint "/api/v1/login" --cmd
 # Custom route:
 https://github.com/ejpir/CVE-2025-55182-poc/blob/main/src/server.js
 
-'/formaction' - is the custom route for the POST request. This route should be replaced for real-life scenario.
-Possible routes (should be with multipart/form-data):
+'/formaction' - is the custom route for the POST request (multipart/form-data).
+This route should be replaced in real-life scenario testing.
+Possible routes:
 
 '/api/actions'
 '/api/server-actions'
