@@ -9,6 +9,9 @@ Python CLI exploit for CVE-2025-55182, a critical RCE vulnerability in React Ser
 ### Docker Testing
 
 ```bash
+# Unpack src.zip
+zip -r src.zip src
+
 # Build and run vulnerable container
 docker build -t cve-2025-55182-vuln .
 docker run -d -p 3002:3002 --name cve-2025-55182 cve-2025-55182-vuln
