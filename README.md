@@ -25,14 +25,6 @@ python3 exploit.py CVE-2025-55182 --ip localhost --port 3002 --cmd "whoami"
 docker stop cve-2025-55182 && docker rm cve-2025-55182
 ```
 
-### Local Testing
-
-```bash
-npm install
-node --conditions react-server --conditions webpack src/server.js
-python3 exploit.py CVE-2025-55182 --ip localhost --port 3002 --check
-```
-
 ## Usage
 
 ```bash
@@ -53,4 +45,4 @@ python3 exploit.py CVE-2025-55182 --url http://TARGET:3002 --code "Math.PI * 2"
 
 ## Disclaimer
 
-⚠️ **FOR EDUCATIONAL AND AUTHORIZED TESTING PURPOSES ONLY**
+**FOR EDUCATIONAL AND AUTHORIZED TESTING PURPOSES ONLY**
