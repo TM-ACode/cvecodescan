@@ -43,6 +43,17 @@ python3 exploit.py CVE-2025-55182 --url http://TARGET:3002 --code "Math.PI * 2"
 
 ## Checker with nuclei (no RCE, only with Math.PI)
 ```bash
+# Custom route:
+https://github.com/ejpir/CVE-2025-55182-poc/blob/main/src/server.js
+
+'/formaction' - is the custom route for the POST request. This route should be replaced for real-life scenario.
+Possible routes:
+
+'/api/actions'
+'/api/server-actions'
+'/api/v1/login'
+'etc..'
+
 # Check vulnerability
 nuclei -t cve-2025-55182.yaml -u http://localhost:3005
 
