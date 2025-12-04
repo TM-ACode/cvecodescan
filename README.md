@@ -116,7 +116,8 @@ nuclei -t cve-2025-55182.yaml -u http://localhost:3005
 
 ## Affected Versions
 
-- `react-server-dom-webpack or react-server-dom-parcel or react-server-dom-turbopack`: 19.0.0, 19.1.0, 19.1.1, 19.2.0
+- `react-server-dom-webpack or react-server-dom-parcel or react-server-dom-turbopack`:
+19.0.0, 19.1.0, 19.1.1, 19.2.0
 - `Next.js`: 15.x, 16.x (App Router)
 
 ## Disclaimer
