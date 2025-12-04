@@ -4,6 +4,8 @@ Python CLI exploit for CVE-2025-55182, a critical RCE vulnerability in React Ser
 
 **Based on:** [ejpir/CVE-2025-55182-poc](https://github.com/ejpir/CVE-2025-55182-poc)
 
+**Behavior** you will be a super lucky dude if you were able find this in the wild. First of all you need to find vulnerable react-server-dom-webpack, then find a POST route which accept multipart/form-data and then - vulnerable gadget, which could be easily disabled :) Good luck!
+
 ## Quick Start
 
 ### Docker Testing
