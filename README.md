@@ -1,4 +1,4 @@
-# CVE-2025-55182 - React Server Components RCE (PoC - RCE not working)
+# CVE-2025-55182 - React Server Components RCE (non-RCE PoC)
 
 **Original research and PoC:** [msanft/CVE-2025-55182](https://github.com/msanft/CVE-2025-55182)
 
