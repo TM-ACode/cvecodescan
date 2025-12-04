@@ -26,11 +26,6 @@ nuclei -t cve-2025-55182.yaml -u http://target.com
 Version checker template based on accessible package.json (`cve-2025-55182-versions.yaml`) available in [sickwell/CVE-2025-55182](https://github.com/sickwell/CVE-2025-55182) repository.
 RCE require additional reseach and specific gadgets. 
 
-**Brief overview:**
-- The vulnerability allows accessing the `Function` constructor through prototype pollution (`__proto__:constructor:constructor`)
-- When the deserialized object is `await`ed by Next.js, it calls the `.then()` method
-- However, `.then()` is invoked with V8's internal `resolve` and `reject` functions, which are not attacker-controlled
-- These internal functions serialize to `function () { [native code] }` when stringified, causing a `SyntaxError: Unexpected token 'function'`
 
 ## Affected Versions
 
