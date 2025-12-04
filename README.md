@@ -70,7 +70,30 @@ Possible routes:
 '/api/v1/login'
 'etc..'
 
-# Check vulnerability
+# Check vulnerability by package.json analysis:
+nuclei -t ~/cve-2025-55182-versions.yaml -u http://localhost:3005
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.4.10
+
+		projectdiscovery.io
+
+[INF] Current nuclei version: v3.4.10 (outdated)
+[INF] Current nuclei-templates version: v10.3.4 (latest)
+[INF] New templates added in latest release: 0
+[INF] Templates loaded for current scan: 1
+[WRN] Loading 1 unsigned templates for scan. Use with caution.
+[INF] Targets loaded for current scan: 1
+[CVE-2025-55182-versions] [http] [critical] http://localhost:3005/package.json
+[CVE-2025-55182-versions] [http] [critical] http://localhost:3005/package-lock.json
+[CVE-2025-55182-versions] [http] [critical] http://localhost:3005/node_modules/react-server-dom-webpack/package.json
+[CVE-2025-55182-versions] [http] [critical] http://localhost:3005/react-server-dom-webpack/package.json
+[INF] Scan completed in 81.999998ms. 4 matches found.
+
+# Check vulnerability with Math.PI
 nuclei -t cve-2025-55182.yaml -u http://localhost:3005
 
                      __     _
